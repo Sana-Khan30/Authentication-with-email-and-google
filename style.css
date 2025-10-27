@@ -1,8 +1,120 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    /* display: flex;
-    direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* justify-content: center; */
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ==== BODY ==== */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f, #1b1b1b);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== AUTH CONTAINER ==== */
+#auth-container,
+.auth-container,
+#welcome-page {
+  background: #181818;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+/* ==== HEADINGS ==== */
+h2 {
+  margin-bottom: 25px;
+  color: #00ff88;
+  letter-spacing: 1px;
+}
+
+/* ==== INPUT FIELDS ==== */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: #262626;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border: 1px solid #00ff88;
+  background-color: #1e1e1e;
+}
+
+/* ==== BUTTONS ==== */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00ff88;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #00cc6f;
+  transform: scale(1.03);
+}
+
+/* ==== GOOGLE BUTTON ==== */
+#google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #000;
+  margin-top: 10px;
+}
+
+#google-btn img {
+  margin-right: 8px;
+}
+
+/* ==== LINKS ==== */
+p {
+  margin-top: 15px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+a {
+  color: #00ff88;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==== WELCOME PAGE ==== */
+#welcome-page h2 {
+  margin-bottom: 25px;
+  color: #00ff88;
+  text-transform: uppercase;
+}
+
+#welcome-page button {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+#welcome-page button:hover {
+  background-color: #ff3333;
+}

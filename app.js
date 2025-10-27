@@ -1,4 +1,3 @@
-
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
   import { getAuth ,createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut,GoogleAuthProvider , onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
@@ -27,7 +26,9 @@ document.getElementById('SignUp-btn')?.addEventListener('click', ()=>{
         alert('SignUp Successfully✔');
         window.location.href= 'welcome.html';
     })
-    .catch(error => alert(error.message));
+     .catch((error) => {
+        alert(error.message);
+    })
 })
 
 // login code
@@ -40,7 +41,9 @@ document.getElementById('Login-btn')?.addEventListener('click', ()=>{
         alert('logIn Successfully✔');
         window.location.href = 'welcome.html'
     })
-    .catch(error => alert(error.message))
+     .catch((error) => {
+        alert(error.message);
+    })
 })
 
 //Google Auth code 
@@ -51,7 +54,9 @@ document.getElementById('google-btn')?.addEventListener('click', ()=>{
         alert('Login succesFully');
         window.location.href = 'welcome.html';
     })
-    .catch(error => alert(error.message))
+    .catch((error) => {
+        alert(error.message);
+    })
 })
 
 //logout || signout
