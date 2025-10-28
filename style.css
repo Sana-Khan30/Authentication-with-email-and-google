@@ -1,120 +1,252 @@
-/* ==== RESET ==== */
+/* Root variables for colors and fonts (from context) */
+:root {
+    --primary-color: #4EA685;  /* Green primary */
+    --secondary-color: #57B894;  /* Lighter green */
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;  /* Light gray for inputs */
+    --gray-2: #757575;  /* Darker gray for icons */
+    --google-color: #DB4437;  /* Google red (kept for reference, not used) */
+}
+
+/* Import Poppins font (from context) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+/* General reset and body styling */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ==== BODY ==== */
-body {
-  height: 100vh;
-  background: linear-gradient(135deg, #0f0f0f, #1b1b1b);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html, body {
+    height: 100vh;
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+    background: linear-gradient(-45deg, var(--primary-color) 0%, var(--secondary-color) 100%);  /* Gradient background like context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
 }
 
-/* ==== AUTH CONTAINER ==== */
-#auth-container,
-.auth-container,
-#welcome-page {
-  background: #181818;
-  padding: 40px 50px;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 100, 0.2);
-  text-align: center;
-  width: 350px;
+/* Container for forms (adapted for your #auth-container and .auth-container) */
+#auth-container, .auth-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 28rem;  /* Matches context's form width */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  /* Shadow like context */
+    text-align: center;
+    animation: slideIn 0.6s ease-out;  /* Improved slide-in animation */
 }
 
-/* ==== HEADINGS ==== */
+/* Improved animation for form appearance */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Headings */
 h2 {
-  margin-bottom: 25px;
-  color: #00ff88;
-  letter-spacing: 1px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--black);
 }
 
-/* ==== INPUT FIELDS ==== */
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  background-color: #262626;
-  color: #fff;
-  font-size: 15px;
-  transition: all 0.3s ease;
+/* Input groups with icons (inspired by context's .input-group) */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
 }
 
-input:focus {
-  border: 1px solid #00ff88;
-  background-color: #1e1e1e;
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--gray-2);
 }
 
-/* ==== BUTTONS ==== */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    background-color: var(--gray);
+    border-radius: 0.5rem;
+    border: 0.125rem solid var(--white);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;  /* Added shadow transition */
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: var(--primary-color);  /* Green border on focus */
+    box-shadow: 0 0 5px rgba(78, 166, 133, 0.5);  /* Green glow for feedback */
+}
+
+/* Buttons (primary and Google) */
 button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #00ff88;
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.6rem 0;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;  /* Hover effects */
 }
 
-button:hover {
-  background-color: #00cc6f;
-  transform: scale(1.03);
+#SignUp-btn, #Login-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
-/* ==== GOOGLE BUTTON ==== */
+#SignUp-btn:hover, #Login-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.02);  /* Slight scale on hover */
+}
+
 #google-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  color: #000;
-  margin-top: 10px;
+    background-color: var(--white);  /* Clean white background */
+    color: var(--gray-2);  /* Dark text for contrast */
+    border: 1px solid #dadce0;  /* Google's standard border color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;  /* Better spacing */
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.7rem 0;  /* Slightly taller */
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Smoother transitions */
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+}
+
+#google-btn:hover {
+    background-color: #f8f9fa;  /* Google's hover background */
+    border-color: var(--primary-color);  /* Green border to tie into theme */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);  /* Enhanced shadow */
+    transform: translateY(-1px);  /* Lift effect */
+}
+
+#google-btn:active {
+    transform: translateY(0);  /* Pressed effect */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  /* Reset shadow */
 }
 
 #google-btn img {
-  margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;  /* Prevents icon shrinking */
 }
 
-/* ==== LINKS ==== */
+/* Paragraphs and links */
 p {
-  margin-top: 15px;
-  color: #ccc;
-  font-size: 14px;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--gray-2);
 }
 
 a {
-  color: #00ff88;
-  text-decoration: none;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* ==== WELCOME PAGE ==== */
+/* Welcome page specific styling */
+#welcome-page {
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    max-width: 28rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation: slideIn 0.6s ease-out;  /* Consistent animation */
+    min-height: auto;  /* Allows height to adjust based on content */
+    height: auto;  /* Ensures it grows with content */
+    overflow: visible;  /* Prevents clipping */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;  /* Centers horizontally */
+    word-wrap: break-word;  /* Allows long words to break */
+    overflow-wrap: break-word;  /* Modern equivalent for text wrapping */
+}
+
 #welcome-page h2 {
-  margin-bottom: 25px;
-  color: #00ff88;
-  text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 2rem;
+    word-wrap: break-word;  /* Ensures h2 text wraps */
+    overflow-wrap: break-word;
+    max-width: 100%;  /* Prevents overflow beyond container */
 }
 
-#welcome-page button {
-  background-color: #ff4d4d;
-  color: #fff;
+#user-email {
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;  /* Allows better control for wrapping */
+    word-break: break-all;  /* Breaks long emails at any character if needed */
+    overflow-wrap: break-word;
+    max-width: 100%;  /* Ensures it doesn't exceed h2 width */
+    white-space: normal;  /* Allows wrapping instead of single line */
 }
 
-#welcome-page button:hover {
-  background-color: #ff3333;
+#Logout-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    margin-top: 1rem;
+    word-wrap: break-word;  /* Just in case button text is long */
+}
+
+#Logout-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.02);
+}
+
+/* Responsive design (from context, adapted for multi-page) */
+@media only screen and (max-width: 425px) {
+    #auth-container, .auth-container, #welcome-page {
+        padding: 1.5rem;
+        margin: 1rem;
+        border-radius: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    input[type="email"], input[type="password"], button {
+        font-size: 1rem;
+        padding: 0.8rem 2.5rem;
+    }
+
+    .input-group i {
+        font-size: 1.2rem;
+    }
+
+    #welcome-page h2 {
+        font-size: 2rem;  /* Smaller on mobile for better wrapping */
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #google-btn {
+        font-size: 1rem;
+        padding: 0.6rem 0;
+    }
 }
